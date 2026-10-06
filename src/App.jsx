@@ -405,7 +405,7 @@ function App() {
                 </p>
 
                 <p className="mt-2 font-serif text-xl text-[#3F2B43]">
-                  Alhaji Tajuddin Akinsowon
+                  Alhaji Tajuddin Afolabi Akinsowon
                 </p>
 
                 <div className="mt-7 flex items-start gap-3">
