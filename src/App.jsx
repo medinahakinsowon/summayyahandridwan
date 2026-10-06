@@ -1,20 +1,13 @@
 
-import React from "react";
-import {
-  MapPin,
-  CalendarDays,
-  Clock3,
-  Navigation,
-  ArrowDown,
-  ExternalLink,
-} from "lucide-react";
+import React, {useState} from "react";
+import { MapPin, CalendarDays, Heart, Play, X , Phone, Clock3, ExternalLink, Navigation} from "lucide-react";
 
 import venue from "./assets/masjid.png"
 
 
 // Venue video — replace this when you find the video
 const venueVideo =
-  "https://www.youtube.com/embed/YOUR_VIDEO_ID";
+  "https://www.youtube.com/embed/tG8i2pHk7go?start=282&playsinline=1&rel=0";
 
 // Shamsi Adisa Thomas (SAT) Mosque, Ikeja GRA
 const venueMapUrl =
@@ -24,6 +17,8 @@ const decorativeImage =
   "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=900&q=85";
 
 function App() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#F5EBDD] text-[#35213F]">
       {/* Decorative background */}
@@ -65,88 +60,304 @@ function App() {
       </nav>
 
       {/* HERO */}
-      <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:px-10 lg:py-24">
-          {/* Hero text */}
-          <div className="relative z-10 text-center lg:text-left">
-            <p className="mb-5 text-sm font-medium uppercase tracking-[0.35em] text-[#8B4A9B]">
-              Bismillah
-            </p>
+     <section className="relative min-h-[92vh] overflow-hidden bg-[#F5EBDD]">
 
-            <div className="mb-6 flex justify-center lg:justify-start">
-              <div className="h-px w-16 bg-[#9A7A4F]" />
-              <div className="mx-3 h-2 w-2 rotate-45 border border-[#9A7A4F]" />
-              <div className="h-px w-16 bg-[#9A7A4F]" />
-            </div>
+  {/* Background decoration */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute -top-32 -left-32 w-72 h-72 rounded-full bg-purple-900/5 blur-3xl" />
+    <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-purple-900/5 blur-3xl" />
+  </div>
 
-            <h1 className="font-serif text-5xl leading-[1.05] text-[#48204F] sm:text-6xl lg:text-7xl">
-              A New Chapter
-              <span className="mt-2 block italic text-[#87518F]">
-                Begins With Bismillah
-              </span>
-            </h1>
+  <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
 
-            <p className="mx-auto mt-7 max-w-xl text-base leading-7 text-[#67546A] lg:mx-0">
-              With the blessings of our families, we joyfully invite you to
-              witness and celebrate the Nikkah of
-            </p>
+    {/* Intro */}
+    <div className="text-center mb-10 sm:mb-12">
 
-            <div className="mt-8">
-              <h2 className="font-serif text-[24px] font-semibold text-[#54265F] sm:text-4xl">
-                Summayyah
-                <span className="mx-3 font-light text-[#9A7A4F]">&</span>
-                Ridwanullah
-              </h2>
-            </div>
+      <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-purple-800 font-medium mb-4">
+        Bismillahir Rahmanir Raheem
+      </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <div className="flex items-center gap-2 rounded-full border border-[#54265F]/15 bg-[#F9F1E5] px-4 py-2 text-sm">
-                <CalendarDays size={16} className="text-[#87518F]" />
-                Saturday, 19 December 2026
-              </div>
+      <div className="flex items-center justify-center gap-3 mb-5">
+        <span className="w-10 sm:w-16 h-px bg-purple-400/60" />
+        <span className="text-purple-700 text-lg">✦</span>
+        <span className="w-10 sm:w-16 h-px bg-purple-400/60" />
+      </div>
 
-              <div className="flex items-center gap-2 rounded-full border border-[#54265F]/15 bg-[#F9F1E5] px-4 py-2 text-sm">
-                <Clock3 size={16} className="text-[#87518F]" />
-                9:00 AM
-              </div>
-            </div>
+      <p className="text-sm sm:text-base text-gray-600 mb-3">
+        You are cordially invited to
+      </p>
 
-            <a
-              href="#couple"
-              className="mt-9 inline-flex items-center gap-2 text-sm font-medium text-[#54265F]"
-            >
-              Explore the invitation
-              <ArrowDown size={16} />
-            </a>
-          </div>
+      <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-purple-950 leading-tight">
+        Nikkah Ceremony
+      </h1>
 
-          {/* Video */}
-          <div className="relative">
-            <div className="absolute -inset-3 rounded-4xl border border-[#87518F]/20" />
+      <p className="mt-4 text-2xl font-semibold sm:text-lg text-gray-600">
+        Summayyah Olamide Akinsowon <br/>
+        <span className="mx-2 text-purple-700">&</span><br/>
+        Ridwanullah Oluwatobiloba Awofeso
+      </p>
+    </div>
 
-            <div className="relative overflow-hidden rounded-3xl bg-[#54265F] p-2 shadow-2xl shadow-[#54265F]/15">
-              <div className="aspect-video overflow-hidden rounded-2xl bg-black">
-                <iframe
-                  className="h-full w-full"
-                  src={venueVideo}
-                  title="Nikkah Venue Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+
+    {/* HERO VIDEO / COVER */}
+    <div className="relative max-w-6xl mx-auto">
+
+      <div className="
+        relative
+        overflow-hidden
+        rounded-2xl
+        sm:rounded-3xl
+        shadow-2xl
+        border
+        border-purple-900/20
+        bg-purple-950
+        aspect-[4/3]
+        sm:aspect-video
+      ">
+
+        {!showVideo ? (
+
+          /* =========================
+             MOSQUE IMAGE COVER
+          ========================== */
+          <button
+            type="button"
+            onClick={() => setShowVideo(true)}
+            className="group absolute inset-0 w-full h-full text-left"
+            aria-label="Play venue video"
+          >
+
+            {/* Mosque image */}
+            <img
+              src={venue}
+              alt="Shamsi Adisa Thomas Mosque, Ikeja"
+              className="
+                absolute
+                inset-0
+                w-full
+                h-full
+                object-cover
+                transition
+                duration-700
+                group-hover:scale-105
+              "
+            />
+
+            {/* Dark purple overlay */}
+            <div className="
+              absolute
+              inset-0
+              bg-purple-950/45
+              group-hover:bg-purple-950/35
+              transition
+              duration-500
+            " />
+
+            {/* Bottom gradient */}
+            <div className="
+              absolute
+              inset-x-0
+              bottom-0
+              h-1/2
+              bg-gradient-to-t
+              from-purple-950/80
+              to-transparent
+            " />
+
+            {/* Play button */}
+            <div className="
+              absolute
+              inset-0
+              flex
+              items-center
+              justify-center
+            ">
+
+              <div className="
+                flex
+                items-center
+                justify-center
+                w-16
+                h-16
+                sm:w-20
+                sm:h-20
+                rounded-full
+                bg-white/95
+                text-purple-900
+                shadow-2xl
+                transition
+                duration-300
+                group-hover:scale-110
+              ">
+
+                <Play
+                  size={30}
+                  fill="currentColor"
+                  className="ml-1 sm:w-8 sm:h-8"
                 />
+
               </div>
+
             </div>
 
-            <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-[#9A7A4F]/30 bg-[#F5EBDD] px-5 py-4 shadow-lg sm:block">
-              <p className="text-xs uppercase tracking-widest text-[#8B4A9B]">
-                Our Special Day
+
+            {/* Video label */}
+            <div className="
+              absolute
+              bottom-5
+              left-5
+              right-5
+              sm:bottom-8
+              sm:left-8
+              sm:right-8
+              text-white
+            ">
+
+              <p className="
+                text-[10px]
+                sm:text-xs
+                uppercase
+                tracking-[0.3em]
+                text-white/80
+                mb-2
+              ">
+                Our Venue
               </p>
-              <p className="mt-1 font-serif text-lg text-[#54265F]">
-                بِسْمِ اللهِ
+
+              <h2 className="
+                font-serif
+                text-xl
+                sm:text-2xl
+                md:text-3xl
+              ">
+                Shamsi Adisa Thomas (SAT) Mosque
+              </h2>
+
+              <p className="text-sm sm:text-base text-white/80 mt-1">
+                Ikeja GRA, Lagos
               </p>
+
             </div>
-          </div>
-        </div>
-      </section>
+
+          </button>
+
+        ) : (
+
+          /* =========================
+             YOUTUBE VIDEO
+          ========================== */
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={venueVideo}
+            title="Shamsi Adisa Thomas Mosque Venue Video"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share
+            "
+            allowFullScreen
+          />
+
+        )}
+
+      </div>
+
+    </div>
+
+
+    {/* Ceremony information below video */}
+    <div className="
+      mt-8
+      sm:mt-10
+      flex
+      flex-col
+      sm:flex-row
+      items-center
+      justify-center
+      gap-4
+      sm:gap-8
+      text-center
+    ">
+
+      <div className="flex items-center gap-2 text-purple-900">
+        <CalendarDays size={18} />
+
+        <span className="text-sm sm:text-base">
+          19th of December
+        </span>
+      </div>
+
+      <span className="hidden sm:block text-purple-400">
+        •
+      </span>
+
+      <div className="flex items-center gap-2 text-purple-900">
+        <MapPin size={18} />
+
+        <span className="text-sm sm:text-base">
+          Shamsi Adisa Thomas (SAT) Mosque, Ikeja
+        </span>
+      </div>
+
+    </div>
+
+
+    {/* RSVP */}
+    <div className="mt-7 flex flex-col items-center">
+
+      <p className="
+        text-xs
+        uppercase
+        tracking-[0.25em]
+        text-gray-500
+        mb-3
+      ">
+        RSVP
+      </p>
+
+      <div className="
+        flex
+        flex-col
+        sm:flex-row
+        items-center
+        gap-2
+        sm:gap-6
+        text-sm
+        sm:text-base
+        text-purple-900
+      ">
+
+        <a
+          href="tel:+2348063435674"
+          className="flex items-center gap-2 hover:text-purple-600 transition"
+        >
+          <Phone size={16} />
+          Aminat · 08063435674
+        </a>
+
+        <span className="hidden sm:block text-purple-300">
+          |
+        </span>
+
+        <a
+          href="tel:+2348061230091"
+          className="flex items-center gap-2 hover:text-purple-600 transition"
+        >
+          <Phone size={16} />
+          Saheed · 08061230091
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* Divider */}
       <div className="mx-auto flex max-w-4xl items-center justify-center gap-4 px-6">
@@ -235,7 +446,7 @@ function App() {
                 </p>
 
                 <p className="mt-2 font-serif text-xl text-[#3F2B43]">
-                  Alhaji Awofeso
+                  Alhaji Adamson Olajide Awofeso
                 </p>
 
                 <div className="mt-7 flex items-start gap-3">
